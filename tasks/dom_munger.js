@@ -39,7 +39,8 @@ module.exports = function(grunt) {
           });
 
           if (option.isPath){
-            var relativeTo = path.dirname(grunt.file.expand(f));
+            //https://github.com/cgross/grunt-dom-munger/pull/44
+            var relativeTo = path.dirname(grunt.file.expand(f).toString());
             vals = vals.map(function(val){
               return path.join(relativeTo,val);
             });
